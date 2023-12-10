@@ -1,4 +1,5 @@
 import express, {Express} from 'express'
+import cors from 'cors'
 import dotenv from 'dotenv'
 
 import handleRoutes from './routes'
@@ -9,6 +10,8 @@ const app:Express = express()
 app.set('PORT', process.env.PORT || 3000)
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+
+cors({methods: ['GET', 'POST'], origin: '*'})
 
 handleRoutes(app)
 
