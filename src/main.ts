@@ -11,8 +11,8 @@ app.set('PORT', process.env.PORT || 3000)
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-cors({methods: ['GET', 'POST'], origin: '*'})
 
+app.use(cors({methods: ['GET', 'POST'], origin: '*'}))
 handleRoutes(app)
 
 app.listen(app.get("PORT"), () => {
